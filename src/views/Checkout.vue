@@ -22,8 +22,9 @@ const loading = ref(false)
 const error = ref('')
 
 const tableOptions = [
-  { floor: 1, numbers: Array.from({ length: 12 }, (_, i) => i + 1) },
-  { floor: 2, numbers: Array.from({ length: 12 }, (_, i) => i + 1) },
+  { floor: 1, label: '1 этаж', numbers: Array.from({ length: 12 }, (_, i) => i + 1) },
+  { floor: 2, label: '2 этаж', numbers: Array.from({ length: 12 }, (_, i) => i + 1) },
+  { floor: 0, label: 'Улица', numbers: Array.from({ length: 16 }, (_, i) => i + 1) },
 ]
 
 function normalizeTableValue(value) {
@@ -134,7 +135,7 @@ if (cart.items.length === 0) {
             <optgroup
               v-for="floor in tableOptions"
               :key="floor.floor"
-              :label="`${floor.floor} этаж`"
+              :label="floor.label"
             >
               <option
                 v-for="number in floor.numbers"

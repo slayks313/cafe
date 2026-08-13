@@ -117,6 +117,10 @@ function formatTableLabel(value) {
   const floor = Math.floor(tableValue / 100)
   const tableNumber = tableValue % 100
 
+  if (floor === 0 && tableNumber > 0) {
+    return `Улица №${tableNumber}`
+  }
+
   if (floor > 0 && tableNumber > 0) {
     return `${floor} этаж №${tableNumber}`
   }
